@@ -1,7 +1,7 @@
 import time
 import os
 from pydicom import dcmread
-from cycle_normalization import normalize
+from cycle_normalization import normalize, write_video
 
 def align_videos(fnames, sec_per_cycle, names=[]):
     """ Description: Normalizes and trims videos to same length
@@ -50,3 +50,14 @@ def load_video(fname):
     """
     video = [img for img in dcmread(fname).pixel_array]
     return video
+
+
+def dicom_to_avi(fname, fps, name=None):
+    """ Description: Writes DICOM data to a video
+        Input: Filename of DICOM, frame per second of video, and name to save video as
+        Output: None, saves video to computer
+    """
+    if name is None:
+        name = fname.split('/')[-1].split('.')[0] + ".avi"
+    video = load_video(fname)
+    write_video(name, video, fps)
