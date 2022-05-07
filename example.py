@@ -28,5 +28,5 @@ indices = [["02", "03", "04"],
 video_paths = sum([[f"{data_path}/{patients[i]}/IM-0001-00{index}.dcm" for index in indices[i]] for i in range(len(patients))], [])
 names = [f"video-{i}" for i in range(len(video_paths))] # to make sure names are unique
 
-align_videos(video_paths, 2) # save to computer
+align_videos(video_paths, 2, names) # save to computer
 X = data_to_tensor(video_paths) # obtain tensor for decomposition
