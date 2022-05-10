@@ -1,6 +1,6 @@
 # Automatic Alignment of Echocardiogram Sequences
 
-This repository contains code to align a specific view of echocardiogram videos based on the heart signal. 
+This repository contains an algorithm for aligning a specific view of echocardiogram videos based on the heart signal. Note: This repository does not contain the data required to run the code, due to privacy concerns.
 
 The algorithm is composed fundamentally of three steps: (1) identify which part of the signal a frame corresponds to, (2) determine whether the frame contains the start of a heartbeat, (3) segment video by complete heartbeat cycles and normalize. All code pertaining to step 1 and 2 are in `beat_identification.py`. Step 3 is in `cycle_normalization.py` and `video_alignment.py`. The file `data_processing.py` provides methods for converting the videos into data. `evalutation.py` contains a heuristic for evaluating the synchronization.
 
